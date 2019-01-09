@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage('Clone repo and clean it') {
             steps {
-                sh "rm -rf game-of-life"
                 sh "git clone https://github.com/wakaleo/game-of-life.git"
                 sh "mvn clean -f game-of-life"
             }
