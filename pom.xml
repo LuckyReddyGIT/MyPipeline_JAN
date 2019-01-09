@@ -3,19 +3,19 @@ pipeline {
     stages {
         stage('Clone repo and clean it') {
             steps {
-                sh "rm -rf MyPipeline_JAN"
-                sh "git clone https://github.com/LuckyReddyGIT/MyPipeline_JAN.git"
-                sh "mvn clean -f Pipeline"
+                sh "rm -rf game-of-life"
+                sh "git clone https://github.com/wakaleo/game-of-life.git"
+                sh "mvn clean -f game-of-life"
             }
         }
         stage('Test') {
             steps {
-                sh "mvn test -f MyPipeline_JAN"
+                sh "mvn test -f game-of-life"
             }
         }
         stage('Deploy') {
             steps {
-                sh "mvn package -f MyPipeline_JAN"
+                sh "mvn package -f game-of-life"
             }
         }
     }
